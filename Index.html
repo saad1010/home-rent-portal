@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Rent Portal</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group select,
+        .form-group input {
+            width: calc(100% - 22px);
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .form-group input[type="button"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .form-group input[type="button"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+    <script>
+        function calculateTotal() {
+            const rent = parseFloat(document.getElementById('rent').value) || 0;
+            const water = parseFloat(document.getElementById('water').value) || 0;
+            const gas = parseFloat(document.getElementById('gas').value) || 0;
+            const total = rent + water + gas;
+            document.getElementById('total').value = total.toFixed(2);
+        }
+    </script>
+</head>
+<body>
+
+<div class="container">
+    <h2>Home Rent Portal</h2>
+    <div class="form-group">
+        <label for="month">Month</label>
+        <select id="month" name="month">
+            <option value="January">January</option>
+            <option value="February">February</option>
+            <option value="March">March</option>
+            <option value="April">April</option>
+            <option value="May">May</option>
+            <option value="June">June</option>
+            <option value="July">July</option>
+            <option value="August">August</option>
+            <option value="September">September</option>
+            <option value="October">October</option>
+            <option value="November">November</option>
+            <option value="December">December</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="year">Year</label>
+        <select id="year" name="year">
+            <option value="2024">2024</option>
+            <option value="2025">2025</option>
+            <option value="2026">2026</option>
+            <option value="2027">2027</option>
+            <option value="2028">2028</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="rent">Rent</label>
+        <input type="number" id="rent" name="rent" placeholder="Enter rent amount" oninput="calculateTotal()">
+    </div>
+    <div class="form-group">
+        <label for="water">Water</label>
+        <input type="number" id="water" name="water" placeholder="Enter water bill" oninput="calculateTotal()">
+    </div>
+    <div class="form-group">
+        <label for="gas">Gas</label>
+        <input type="number" id="gas" name="gas" placeholder="Enter gas bill" oninput="calculateTotal()">
+    </div>
+    <div class="form-group">
+        <label for="total">Total</label>
+        <input type="number" id="total" name="total" placeholder="Total amount" readonly>
+    </div>
+    <div class="form-group">
+        <input type="button" value="Print" onclick="window.print()">
+    </div>
+</div>
+
+</body>
+</html>
