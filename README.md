@@ -1,2 +1,3 @@
-# home-rent-portal
-Home Rent 
+home-rent-portal/
+├── index.html
+└── (other files or folders if any)
